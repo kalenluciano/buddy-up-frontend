@@ -18,6 +18,9 @@ BuddyUp allows you to select an activity and match with a buddy of your choice.
 * React.js
 * JavaScript
 
+**_Component Hierarchy Diagram:_**
+![Component Hierarchy Diagram](./buddy-up-component-hierarchy-diagram.png)
+
 ***
 
 ### ***Getting Started***
@@ -29,12 +32,9 @@ A trello board used to keep track of development progress can be [viewed here](h
 
 The project itself was deployed and can be [viewed here]().
 
-**_Component Hierarchy Diagram:_**
-![Component Hierarchy Diagram](./buddy-up-component-hierarchy-diagram.png)
-
 ***
 
-### **_Screenshots_**
+### ***Screenshots***
 
 ***
-### **_Credits_**
+### ***Credits***
