@@ -6,7 +6,7 @@ import ActivityCard from '../components/ActivityCard';
 import { Link } from 'react-router-dom';
 
 const SearchResults = () => {
-	const [searchResults, setSearchResults] = useState('');
+	const [searchResults, setSearchResults] = useState([]);
 
 	const { activity } = useParams();
 
@@ -27,7 +27,10 @@ const SearchResults = () => {
 	return (
 		<div>
 			{searchResults.map((activitySearchResult) => (
-				<Link key={activitySearchResult.id}>
+				<Link
+					key={activitySearchResult._id}
+					to={`/activity/${activitySearchResult._id}`}
+				>
 					<ActivityCard />
 				</Link>
 			))}
