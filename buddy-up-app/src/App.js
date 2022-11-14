@@ -63,8 +63,14 @@ const App = () => {
 							/>
 						}
 					/>
-					<Route path="/activity" element={<Activity />} />
-					<Route path="/category" element={<Category />} />
+					<Route
+						path="/activity/:activity_id"
+						element={<Activity />}
+					/>
+					<Route
+						path="/category/:category_id"
+						element={<Category />}
+					/>
 					<Route path="/about" element={<About />} />
 					<Route path="/profile" element={<Profile />} />
 					<Route
