@@ -10,7 +10,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    searchQueryActivity = searchQuery
+    const searchQueryActivity = searchQuery
     setSearchQuery('')
     navigate(`/search-results/${searchQueryActivity}`)
   }
