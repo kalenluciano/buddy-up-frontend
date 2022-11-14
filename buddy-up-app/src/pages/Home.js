@@ -20,7 +20,11 @@ const Home = () => {
 			<h1>Activities Around You!</h1>
 			{categories.map((category) => (
 				<Link key={category._id} to={`/category/${category._id}`}>
-					<CategoryCard />
+					<CategoryCard
+						id={category._id}
+						name={category.name}
+						image={category.image}
+					/>
 				</Link>
 			))}
 		</div>
