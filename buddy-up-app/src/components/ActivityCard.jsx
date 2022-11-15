@@ -2,9 +2,10 @@
 
 
 
-const ActivityCard = ({name, streetAddress, city, state, zipCode, country, date}) => {
+const ActivityCard = ({image, name, streetAddress, city, state, zipCode, country, date}) => {
 	return (
 	<div>
+		<div>{image}</div>
 		<div>
 			<h1>{name}</h1>
 		</div>
