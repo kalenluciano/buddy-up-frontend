@@ -5,14 +5,10 @@ import { BASE_URL } from '../globals'
 import ActivityCard from '../components/ActivityCard'
 
 const Category = () => {
-<<<<<<< HEAD
-	return <div>
 
-		
-	</div>;
-};
-=======
-  let { categoryId } = useParams()
+
+  let { category_id } = useParams()
+
   const navigate = useNavigate()
 
   const [categoriesId, setCategoriesId] = useState(null)
@@ -20,7 +16,7 @@ const Category = () => {
 
   const getActivitiesByCategoryId = async () => {
     const response = await axios.get(
-      `${BASE_URL}/activities/categories/${categoryId}`
+      `${BASE_URL}/activities/category/${category_id}`
     )
     setCategoriesId(categoriesId)
     setActivities(response.data)
@@ -29,7 +25,7 @@ const Category = () => {
     getActivitiesByCategoryId()
   }, [categoriesId])
 
-  return categoryId !== null ? (
+  return category_id !== null ? (
     <div>
       <h1>hello</h1>
       {activities.map((activity) => (
@@ -48,6 +44,5 @@ const Category = () => {
     </div>
   ) : null
 }
->>>>>>> ff8bcee4361be50564450b4d2eeb58cef5baeace
 
 export default Category
