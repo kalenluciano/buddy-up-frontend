@@ -67,7 +67,13 @@ const App = () => {
 					/>
 					<Route
 						path="/activity/:activity_id"
-						element={<Activity />}
+						element={
+							<Activity
+								user={user}
+								authenticated={authenticated}
+								checkToken={checkToken}
+							/>
+						}
 					/>
 					<Route
 						path="/category/:category_id"
