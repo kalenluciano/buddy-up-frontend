@@ -28,8 +28,8 @@ const SearchResults = () => {
 		<div>
 			{searchResults.map((activitySearchResult) => (
 				<Link
-					key={activitySearchResult._id}
-					to={`/activity/${activitySearchResult._id}`}
+					key={activitySearchResult.id}
+					to={`/activity/${activitySearchResult.id}`}
 				>
 					<ActivityCard />
 				</Link>
