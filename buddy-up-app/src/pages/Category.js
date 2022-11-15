@@ -5,7 +5,10 @@ import { BASE_URL } from '../globals'
 import ActivityCard from '../components/ActivityCard'
 
 const Category = () => {
+
+
   let { category_id } = useParams()
+
   const navigate = useNavigate()
 
   const [categoriesId, setCategoriesId] = useState(null)
