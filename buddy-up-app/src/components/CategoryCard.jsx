@@ -1,29 +1,20 @@
 import {useState} from 'react'
-import axios from 'axios';
-import { BASE_URL } from '../globals';
 import { useEffect } from 'react';
 
-const CategoryCard = ({id, name, image}) => {
-	const [allActivities, setAllActivities] = useState([])
+const CategoryCard = ({id, name, image, allActivities}) => {
 	const [activityNumber, setActivityNumber] = useState(0)
-	
-	const getAllActivities = async () => {
-		const response = await axios.get(`${BASE_URL}/activites`)
-		setAllActivities(response.data)
-	}
 
 	const getTotalActivityNumber = () => {
-		let total = 0
-		allActivities.forEach((activity)=>{
+		let total = 0;
+		allActivities.forEach((activity) => {
 			if (activity.categoryId === id) {
-				total += 1
+				total += 1;
 			}
-		})
-		setActivityNumber(total)
-	}
+		});
+		setActivityNumber(total);
+	};
 
 	useEffect(()=>{
-		getAllActivities()
 		getTotalActivityNumber()
 	}, [])
 

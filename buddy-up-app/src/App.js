@@ -27,12 +27,14 @@ const App = () => {
 		setUser(user);
 		toggleAuthenticated(true);
 	};
+
 	useEffect(() => {
 		const token = localStorage.getItem('token');
 		if (token) {
 			checkToken();
 		}
 	}, []);
+
 	return (
 		<div className="App">
 			<header>
