@@ -71,7 +71,6 @@ const App = () => {
 							<Activity
 								user={user}
 								authenticated={authenticated}
-								checkToken={checkToken}
 							/>
 						}
 					/>

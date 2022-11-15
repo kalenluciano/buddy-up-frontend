@@ -8,9 +8,10 @@ import BuddySwipe from '../components/BuddySwipe';
 import SignUp from '../components/SignUp';
 import LikeActivityButton from '../components/LikeActivityButton';
 
-const Activity = ({ user, authenticated, checkToken }) => {
+const Activity = ({ user, authenticated }) => {
 	const [selectActivity, setSelectActivity] = useState({});
 	const [likedActivity, toggleLikedActivity] = useState(false);
+	const [userActivityList, setUserActivityList] = useState([]);
 
 	let { activity_id } = useParams();
 
@@ -21,9 +22,32 @@ const Activity = ({ user, authenticated, checkToken }) => {
 		setSelectActivity(response.data);
 	};
 
+	const getUserActivityList = async () => {
+		const response = await axios.get(
+			`${BASE_URL}/user-activities/user/${user.id}`
+		);
+		setUserActivityList(response.data[0].created_list);
+	};
+
+	const checkActivityListForLike = () => {
+		const userActivity = userActivityList.filter(
+			(userActivity) => userActivity.id === selectActivity.id
+		);
+		if (userActivity[0]) {
+			toggleLikedActivity(true);
+		}
+	};
+
 	useEffect(() => {
 		activity();
-	}, []);
+		if (user) {
+			getUserActivityList();
+		}
+	}, [user]);
+
+	useEffect(() => {
+		checkActivityListForLike();
+	}, [selectActivity]);
 
 	return (
 		<div>
@@ -40,17 +64,21 @@ const Activity = ({ user, authenticated, checkToken }) => {
 				{selectActivity.zipCode}
 				{selectActivity.country}
 			</h4>
-			{authenticated && user ? null : <SignUp />}
+			{!authenticated && !user && <SignUp />}
 			{authenticated && user && (
 				<LikeActivityButton
 					likedActivity={likedActivity}
 					toggleLikedActivity={toggleLikedActivity}
+					userId={user.id}
+					selectActivityId={selectActivity.id}
+					setUserActivityList={setUserActivityList}
+					userActivityList={userActivityList}
 				/>
 			)}
-			{authenticated && user && likedActivity ? (
+			{authenticated && user && likedActivity && (
 				<BuddySwipe user={user} />
-			) : null}
-			{authenticated && user && likedActivity ? <BuddyList /> : null}
+			)}
+			{authenticated && user && likedActivity && <BuddyList />}
 		</div>
 	);
 };
