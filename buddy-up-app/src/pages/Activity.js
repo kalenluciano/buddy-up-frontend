@@ -3,8 +3,11 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
+import BuddyList from '../components/BuddyList'
+import BuddySwipe from '../components/BuddySwipe'
+import SignUp from '../components/SignUp'
 
-const Activity = () => {
+const Activity = ({ user, authenticated }) => {
   let { activity_id } = useParams()
   const [selectActivity, setSelectActivity] = useState({})
 
@@ -33,6 +36,8 @@ const Activity = () => {
         {selectActivity.zipCode}
         {selectActivity.country}
       </h4>
+      {authenticated && user ? <BuddySwipe /> : <SignUp />}
+      {authenticated && user ? <BuddyList /> : null}
     </div>
   )
 }
