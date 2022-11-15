@@ -35,10 +35,10 @@ const Register = () => {
         username: formValues.username,
         password: formValues.password,
         email: formValues.email,
-        phoneNumber: formValues.phoneNumber,
-        age: formValues.age,
-        profilePicture: formValues.profilePicture,
-        about: formValues.about
+        // phoneNumber: formValues.phoneNumber,
+        age: formValues.age
+        // profilePicture: formValues.profilePicture,
+        // about: formValues.about
       })
       console.log('this works')
 
