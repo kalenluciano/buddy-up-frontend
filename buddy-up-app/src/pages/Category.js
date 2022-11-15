@@ -28,9 +28,12 @@ const Category = () => {
         <Link to={`/activity/${activity.id}`} key={activity.id}>
           <ActivityCard
             name={activity.name}
+            date={activity.date}
             streetAddress={activity.streetAddress}
             city={activity.city}
             state={activity.state}
+            zipCode={activity.zipCode}
+            country={activity.country}
           />
         </Link>
       ))}
