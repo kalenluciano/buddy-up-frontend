@@ -24,6 +24,7 @@ const Category = () => {
 
   return categoryId !== null ? (
     <div>
+      <h1>hello</h1>
       {activities.map((activity) => (
         <Link to={`/activity/${activity.id}`} key={activity.id}>
           <ActivityCard
