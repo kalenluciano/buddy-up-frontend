@@ -1,4 +1,12 @@
+
+
+
+
 const ActivityCard = () => {
+	
+	
+	
+	
 	return <div></div>;
 };
 
