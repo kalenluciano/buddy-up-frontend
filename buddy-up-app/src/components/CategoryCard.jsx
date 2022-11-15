@@ -5,24 +5,25 @@ const CategoryCard = ({id, name, image, allActivities}) => {
 	const [activityNumber, setActivityNumber] = useState(0)
 
 	const getTotalActivityNumber = () => {
-		let total = 0;
+		let total=0 
 		allActivities.forEach((activity) => {
 			if (activity.categoryId === id) {
 				total += 1;
 			}
 		});
-		setActivityNumber(total);
+		setActivityNumber(()=>total);
 	};
 
 	useEffect(()=>{
 		getTotalActivityNumber()
-	}, [])
+	}, [allActivities])
 
 	return (
 		<div>
 			<img src={image} alt={name}/>
 			<h4>{name}</h4>
-			<p>{activityNumber}</p>
+			{!!activityNumber && <p>{activityNumber}</p> }
+			
 		</div>
 	);
 };
