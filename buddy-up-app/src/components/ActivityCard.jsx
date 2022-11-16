@@ -5,7 +5,7 @@
 const ActivityCard = ({image, name, streetAddress, city, state, zipCode, country, date}) => {
 	return (
 	<div>
-		<div>{image}</div>
+		<img src={image} alt ={name}/>
 		<div>
 			<h1>{name}</h1>
 		</div>

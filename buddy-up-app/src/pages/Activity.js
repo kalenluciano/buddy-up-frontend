@@ -51,6 +51,7 @@ const Activity = ({ user, authenticated }) => {
 
 	return (
 		<div>
+			<img src = {selectActivity.image} alt={selectActivity.name}/>
 			<div>
 				<h1>{selectActivity.name}</h1>
 			</div>
