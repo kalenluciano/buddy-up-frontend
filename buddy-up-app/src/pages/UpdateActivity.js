@@ -1,15 +1,17 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BASE_URL } from "../globals";
 import Client from "../services/api";
 
-const AddActivity = ({user}) => {
+
+const UpdateActivity = ({user}) => {
+    const {activity_id}= useParams()
     let navigate = useNavigate();
     const initialFormValues = {
       userId: user.id,
-      categoryId:"",
+      activityId: activity_id,
        name:"",
        description:"",
        streetAddress: "",
@@ -25,11 +27,20 @@ const AddActivity = ({user}) => {
   
     const [formValues, setFormValues] = useState(initialFormValues);
     const [categories, setCategories] = useState([]);
+    const [activity, setActivities] = useState([])
+
   
   
   
   
     //functions
+
+   const getActivityByActivityId = async ()=>{
+        const activity = await axios .get (`${BASE_URL}/activities/${activity_id}`) 
+        console.log(activity)
+        setActivities(activity.data);
+        setFormValues(activity.data)
+    }
     const getCategories = async () => {
       const categories = await axios.get(`${BASE_URL}/categories`);
     //  const names = categories.data.map(({name})=>name)
@@ -39,10 +50,13 @@ const AddActivity = ({user}) => {
 
     useEffect(() => {
         getCategories();
+        getActivityByActivityId()
        
     }, []);
 
      const handleChange = (event) => {
+      console.log(event.target.id);
+      console.log(event.target.value);
       setFormValues({ ...formValues, [event.target.name]: event.target.value });
     };
   
@@ -52,8 +66,8 @@ const AddActivity = ({user}) => {
       formValues.date = new Date (`${formValues.date}T${formValues.time}`)
  delete formValues.time
 const categoryId = formValues.categoryId
-      const newActivity = await Client
-        .post(`${BASE_URL}/activities`, formValues)
+      const updateActivity = await Client
+        .put(`${BASE_URL}/activities/${activity_id}`, formValues)
         .then((response) => {
           return response;
         })
@@ -63,7 +77,7 @@ const categoryId = formValues.categoryId
   
       setFormValues(initialFormValues);
   
-      navigate(`/activities/${newActivity.id}`);
+      navigate(`/activity/${activity_id}`);
     };
   
    
@@ -71,7 +85,7 @@ const categoryId = formValues.categoryId
     return (
       <div>
         <form onSubmit ={handleSubmit}>
-          <h1>Creating New Activity</h1>
+          <h1>Update New Activity</h1>
           <div >
             <label htmlFor= "name"> Activity Name:</label>
             <input
@@ -193,5 +207,4 @@ const categoryId = formValues.categoryId
     );
   };
   
-  export default AddActivity;
-  
+  export default UpdateActivity;
