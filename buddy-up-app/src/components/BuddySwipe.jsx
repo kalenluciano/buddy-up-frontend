@@ -19,6 +19,11 @@ const BuddySwipe = ({user, selectActivity}) => {
 		setPotentialBuddy(randomBuddy)
 	}
 
+	const removePotentialBuddyFromPool = () => {
+		const potentialBuddyId = potentialBuddy.id
+		
+	}
+
 	const getNextUser = () => {
 		console.log('Next')
 	}
