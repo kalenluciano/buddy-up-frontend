@@ -76,7 +76,7 @@ const Activity = ({ user, authenticated }) => {
 				/>
 			)}
 			{authenticated && user && likedActivity && (
-				<BuddySwipe user={user} />
+				<BuddySwipe user={user} selectActivity={selectActivity} />
 			)}
 			{authenticated && user && likedActivity && <BuddyList />}
 		</div>
