@@ -7,6 +7,7 @@ import Register from './pages/Register';
 import SignIn from './pages/SignIn';
 import Activity from './pages/Activity';
 import AddActivity from './pages/AddActivity';
+import UpdateActivity from './pages/UpdateActivity';
 import Home from './pages/Home';
 import Nav from './components/Nav';
 import SearchResults from './pages/SearchResults';
@@ -86,9 +87,17 @@ const App = () => {
 						element={<SearchResults />}
 					/>
 					<Route
-						path="add-activity"
+						path="/add-activity"
 						element={
 							<AddActivity
+								user={user}
+							/>
+						}
+					/>
+					<Route
+						path="/update-activity/:activity_id"
+						element={
+							<UpdateActivity
 								user={user}
 							/>
 						}
