@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { BASE_URL } from "../globals";
 import UserCard from "./UserCard";
+import { Link } from "react-router-dom";
 
 const BuddySwipe = ({user, selectActivity}) => {
 	const [allUserActivitiesList, setAllUserActivitiesList] = useState([])
@@ -19,8 +20,8 @@ const BuddySwipe = ({user, selectActivity}) => {
 	return (
 		<div>
 			<h1>Buddy Swipe</h1>
-			{allUserActivitiesList.map((userActivity) => (
-				<UserCard key={userActivity.id} userActivity={userActivity}/>
+			{allUserActivitiesList.map((userBuddy) => (
+				<UserCard key={userBuddy.id} userBuddy={userBuddy}/>
 			))}
 		</div>
 		);
