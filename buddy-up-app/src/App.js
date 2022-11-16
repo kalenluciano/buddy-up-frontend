@@ -81,30 +81,20 @@ const App = () => {
 						element={<Category />}
 					/>
 					<Route path="/about" element={<About />} />
-					<Route path="/profile" element={<Profile />} />
+					<Route path="/profile/:user_id" element={<Profile />} />
 					<Route
 						path="/search-results/:activity"
 						element={<SearchResults />}
 					/>
 					<Route
 						path="/add-activity"
-						element={
-							<AddActivity
-								user={user}
-							/>
-						}
+						element={<AddActivity user={user} />}
 					/>
 					<Route
 						path="/update-activity/:activity_id"
-						element={
-							<UpdateActivity
-								user={user}
-							/>
-						}
+						element={<UpdateActivity user={user} />}
 					/>
-					
 				</Routes>
-				
 			</main>
 		</div>
 	);
