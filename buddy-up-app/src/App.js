@@ -6,6 +6,7 @@ import About from './pages/About';
 import Register from './pages/Register';
 import SignIn from './pages/SignIn';
 import Activity from './pages/Activity';
+import AddActivity from './pages/AddActivity';
 import Home from './pages/Home';
 import Nav from './components/Nav';
 import SearchResults from './pages/SearchResults';
@@ -84,7 +85,17 @@ const App = () => {
 						path="/search-results/:activity"
 						element={<SearchResults />}
 					/>
+					<Route
+						path="add-activity"
+						element={
+							<AddActivity
+								user={user}
+							/>
+						}
+					/>
+					
 				</Routes>
+				
 			</main>
 		</div>
 	);
