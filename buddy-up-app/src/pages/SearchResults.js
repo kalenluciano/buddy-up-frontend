@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const SearchResults = () => {
 	const [searchResults, setSearchResults] = useState([]);
-
+  
 	const { activity } = useParams();
 
 	const getSearchResults = async () => {
@@ -15,7 +15,7 @@ const SearchResults = () => {
 		const activitySearchResults = response.data;
 		const filteredResults = activitySearchResults.filter(
 			(activitySearchResult) =>
-				activitySearchResult.toLowerCase() === activity.toLowerCase()
+				activitySearchResult.name.toLowerCase() === activity.toLowerCase()
 		);
 		setSearchResults(filteredResults);
 	};
@@ -26,12 +26,21 @@ const SearchResults = () => {
 
 	return (
 		<div>
-			{searchResults.map((activitySearchResult) => (
+			{searchResults.map((activity) => (
 				<Link
-					key={activitySearchResult.id}
-					to={`/activity/${activitySearchResult.id}`}
+					key={activity.id}
+					to={`/activity/${activity.id}`}
 				>
-					<ActivityCard />
+					<ActivityCard
+						name={activity.name}
+						image={activity.image}
+						date={activity.date}
+						streetAddress={activity.streetAddress}
+						city={activity.city}
+						state={activity.state}
+						zipCode={activity.zipCode}
+						country={activity.country}
+					/>
 				</Link>
 			))}
 		</div>
