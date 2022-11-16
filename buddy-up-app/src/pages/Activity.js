@@ -47,7 +47,7 @@ const Activity = ({ user, authenticated }) => {
 
 	useEffect(() => {
 		checkActivityListForLike();
-	}, [selectActivity]);
+	}, [selectActivity, userActivityList]);
 
 	return (
 		<div>
