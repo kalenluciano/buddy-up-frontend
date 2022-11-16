@@ -1,12 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { BASE_URL } from '../globals';
 import BuddyList from '../components/BuddyList';
 import BuddySwipe from '../components/BuddySwipe';
 import SignUp from '../components/SignUp';
 import LikeActivityButton from '../components/LikeActivityButton';
+import Client from '../services/api';
 
 const Activity = ({ user, authenticated }) => {
 	const [selectActivity, setSelectActivity] = useState({});
@@ -14,6 +15,7 @@ const Activity = ({ user, authenticated }) => {
 	const [userActivityList, setUserActivityList] = useState([]);
 
 	let { activity_id } = useParams();
+	let navigate = useNavigate();
 
 	const activity = async () => {
 		const response = await axios.get(
@@ -38,6 +40,16 @@ const Activity = ({ user, authenticated }) => {
 		}
 	};
 
+	const handleUpdateClick = () => {
+		navigate(`/update-activity/${selectActivity.id}`);
+	};
+
+	const handleDeleteClick = async () => {
+		const deletedActivityCategoryId = selectActivity.categoryId;
+		await Client.delete(`${BASE_URL}/activities/${selectActivity.id}`);
+		navigate(`/category/${deletedActivityCategoryId}`);
+	};
+
 	useEffect(() => {
 		activity();
 		if (user) {
@@ -51,7 +63,7 @@ const Activity = ({ user, authenticated }) => {
 
 	return (
 		<div>
-			<img src = {selectActivity.image} alt={selectActivity.name}/>
+			<img src={selectActivity.image} alt={selectActivity.name} />
 			<div>
 				<h1>{selectActivity.name}</h1>
 			</div>
@@ -66,6 +78,12 @@ const Activity = ({ user, authenticated }) => {
 				{selectActivity.country}
 			</h4>
 			{!authenticated && !user && <SignUp />}
+			{authenticated && user.id === selectActivity.userId && (
+				<button onClick={handleUpdateClick}>Update Activity</button>
+			)}
+			{authenticated && user.id === selectActivity.userId && (
+				<button onClick={handleDeleteClick}>Delete Activity</button>
+			)}
 			{authenticated && user && (
 				<LikeActivityButton
 					likedActivity={likedActivity}
