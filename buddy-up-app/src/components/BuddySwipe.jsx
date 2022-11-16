@@ -19,7 +19,7 @@ const BuddySwipe = ({user, selectActivity}) => {
 		setPotentialBuddy(randomBuddy)
 	}
 
-	const removePotentialBuddyFromPool = () => {
+	const removePotentialBuddyFromPool = async () => {
 		const potentialBuddyId = potentialBuddy.id
 		
 	}
