@@ -8,6 +8,7 @@ import SignIn from './pages/SignIn';
 import Activity from './pages/Activity';
 import AddActivity from './pages/AddActivity';
 import UpdateActivity from './pages/UpdateActivity';
+import UpdateProfile from './pages/UpdateProfile';
 import Home from './pages/Home';
 import Nav from './components/Nav';
 import SearchResults from './pages/SearchResults';
@@ -81,7 +82,8 @@ const App = () => {
 						element={<Category />}
 					/>
 					<Route path="/about" element={<About />} />
-					<Route path="/profile/:user_id" element={<Profile />} />
+					<Route path="/profile/:user_id" element={<Profile user={user}/>} />
+					<Route path="/update-profile/:user_id" element={<UpdateProfile user={user}/>} />
 					<Route
 						path="/search-results/:activity"
 						element={<SearchResults />}

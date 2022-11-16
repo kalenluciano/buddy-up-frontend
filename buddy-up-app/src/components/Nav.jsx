@@ -26,7 +26,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Search onSubmit={handleSubmit} handleChange={handleChange} value={searchQuery}/>
-        <Link to="/profile">Profile</Link>
+        <Link to={`/profile/${user.id}`}>Profile</Link>
         <Link to="/add-activity">Add Activity</Link>
         <Link onClick={handleLogOut} to="/">
           Sign Out
