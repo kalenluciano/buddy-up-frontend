@@ -24,7 +24,7 @@ const Home = () => {
   }, [])
 
   return (
-    <div>
+    <div className="homePage">
       <div className="homePageTitle">
         <h1>Activities & Events Around You!</h1>
       </div>

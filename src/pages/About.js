@@ -1,10 +1,10 @@
 const About = () => {
   return (
-    <div className="aboutmePage">
+    <div className="aboutMePage">
       <div className="aboutMeTitle">
         <h1>BuddyUp</h1>
       </div>
-      <section className="aboutMeInfo">
+      <div className="aboutMeInfo">
         <p>
           Doing activities with a buddy is not only fun and exciting, it has
           some really great benefits too. We'll bore you with a few. You're more
@@ -25,7 +25,7 @@ const About = () => {
         <a href="/register" alt="register">
           <button>BuddyUp</button>
         </a>
-      </section>
+      </div>
     </div>
   )
 }
