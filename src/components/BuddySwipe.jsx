@@ -3,13 +3,18 @@ import { useState, useEffect } from 'react'
 import { BASE_URL } from '../globals'
 import UserCard from './UserCard'
 import Client from '../services/api'
+import BuddyList from '../components/BuddyList';
 
-const BuddySwipe = ({ user, selectActivity, setBuddyMatches }) => {
+const BuddySwipe = ({ user, selectActivity }) => {
   const [poolOfBuddies, setPoolOfBuddies] = useState([])
   const [potentialBuddy, setPotentialBuddy] = useState({})
   const [noMorePotentialBuddies, toggleNoMorePotentialBuddies] = useState(false)
   const [clickNext, toggleClickNext] = useState(false)
   const [clickBuddyUp, toggleClickBuddyUp] = useState(false)
+  const [buddyLikes, setBuddyLikes] = useState([]);
+  const [potentialBuddyMatches, setPotentialBuddyMatches] = useState([])
+  const [connection, toggleConnection] = useState(false)
+  const [buddyConnections, setBuddyConnections] = useState([])
 
   const getUsersWhoLikedActivity = async () => {
     const usersWhoLikedActivity = await axios.get(
@@ -41,11 +46,13 @@ const BuddySwipe = ({ user, selectActivity, setBuddyMatches }) => {
   }
 
   const getLikedBuddiesList = async () => {
-
+    const likedBuddiesList = await axios.get(`${BASE_URL}/user-buddies/all/${user.id}`)
+    return likedBuddiesList
   }
 
   const getUserBuddyPairByActivityId = async () => {
-
+    const userBuddyPairByActivityId = await axios.get(`${BASE_URL}/user-buddy-activities/raw/activity/${selectActivity.id}`)
+    return userBuddyPairByActivityId
   }
 
   const getListOfUserBuddyPairById = (buddiesList) => {
@@ -139,9 +146,10 @@ const BuddySwipe = ({ user, selectActivity, setBuddyMatches }) => {
       const userBuddyPairByActivityId = await getUserBuddyPairByActivityId()
       const listOfUserBuddyPairById = getListOfUserBuddyPairById(likedBuddiesList)
       const filteredListOfUserBuddyPairByActivityId = getFilteredListOfUserBuddyPairByActivityId(userBuddyPairByActivityId, listOfUserBuddyPairById)
-      const listOfBuddyMatchesToRemove = getListOfBuddiesToRemove(likedBuddiesList, filteredListOfUserBuddyPairByActivityId)
-      setBuddyMatches(listOfBuddyMatchesToRemove)
-      const potentialBuddyMatches = getPotentialBuddyMatches(userActivitiesListFilteredOutUser, listOfBuddyMatchesToRemove)
+      const listOfBuddyLikesToRemove = getListOfBuddiesToRemove(likedBuddiesList, filteredListOfUserBuddyPairByActivityId)
+      setBuddyLikes(listOfBuddyLikesToRemove)
+      const potentialBuddyMatches = getPotentialBuddyMatches(userActivitiesListFilteredOutUser, listOfBuddyLikesToRemove)
+      setPotentialBuddyMatches(potentialBuddyMatches)
       filterPotentialBuddyPool(potentialBuddyMatches, userActivitiesListFilteredOutUser)
     } 
   setPoolOfBuddies(userActivitiesListFilteredOutUser)
@@ -166,7 +174,7 @@ const BuddySwipe = ({ user, selectActivity, setBuddyMatches }) => {
 
   const removeMatchedBuddyFromPool = async () => {
     const potentialBuddyId = potentialBuddy.id
-    const userMatchedBuddy = await Client.post(`${BASE_URL}/user-buddies/user/${user.id}/buddy/${potentialBuddyId}`)
+    const userMatchedBuddy = await Client.post(`${BASE_URL}/user-buddies/raw/user/${user.id}/buddy/${potentialBuddyId}`)
     const userMatchedBuddyId = userMatchedBuddy.data[0][0].id
     const userBuddyActivity = await Client.post(
       `${BASE_URL}/user-buddy-activities/user-buddy/${userMatchedBuddyId}/activity/${selectActivity.id}`
@@ -183,6 +191,20 @@ const BuddySwipe = ({ user, selectActivity, setBuddyMatches }) => {
     toggleClickBuddyUp(!clickBuddyUp)
   }
 
+  const setMatches = async () => {
+    const buddyMatches = []
+    buddyLikes.forEach((buddyLike) => {
+      potentialBuddyMatches.forEach((potentialConnection) => {
+        if (potentialConnection.id===buddyLike.userId && !buddyMatches.includes(potentialConnection)){
+          buddyMatches.push(potentialConnection)
+      }})
+    })
+    setBuddyConnections(buddyMatches)
+    if (buddyConnections.length > 0) {
+      toggleConnection(true)
+    }
+  }
+
   useEffect(() => {
     getPoolOfBuddies()
   }, [user, clickNext, clickBuddyUp])
@@ -194,6 +216,7 @@ const BuddySwipe = ({ user, selectActivity, setBuddyMatches }) => {
     } else {
       toggleNoMorePotentialBuddies(true)
     }
+    setMatches()
   }, [poolOfBuddies])
 
   return (
@@ -208,6 +231,12 @@ const BuddySwipe = ({ user, selectActivity, setBuddyMatches }) => {
           addUserToBuddyList={addUserToBuddyList}
         />
       )}
+      {user && connection && (<h1>Buddy Matches</h1>)}
+      {user && connection && (
+        buddyConnections.map((buddyConnection) => 
+				<BuddyList key={buddyConnection.id} buddyConnection={buddyConnection} />
+      )
+			)}
     </div>
   )
 }

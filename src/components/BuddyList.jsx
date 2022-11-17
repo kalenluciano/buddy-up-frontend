@@ -1,10 +1,11 @@
-const BuddyList = ({buddyMatches}) => {
+import { Link } from "react-router-dom";
+
+const BuddyList = ({buddyConnection}) => {
+	console.log(buddyConnection)
 	return (
-	<div>
-		<h1>Buddy List</h1>
-		{/* TBD how to render this out */}
-		{/* {buddyMatches.map((buddyMatch) => ())} */}
-	</div>
+	<Link to={`/profile/${buddyConnection.id}`}>
+		<img src={buddyConnection.profilePicture} alt={buddyConnection.name}/>
+	</Link>
 	);
 };
 
