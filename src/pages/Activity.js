@@ -13,6 +13,7 @@ const Activity = ({ user, authenticated }) => {
 	const [selectActivity, setSelectActivity] = useState({});
 	const [likedActivity, toggleLikedActivity] = useState(false);
 	const [userActivityList, setUserActivityList] = useState([]);
+	const [buddyMatches, setBuddyMatches] = useState([]);
 
 	let { activity_id } = useParams();
 	let navigate = useNavigate();
@@ -95,9 +96,15 @@ const Activity = ({ user, authenticated }) => {
 				/>
 			)}
 			{authenticated && user && likedActivity && (
-				<BuddySwipe user={user} selectActivity={selectActivity} />
+				<BuddySwipe
+					user={user}
+					selectActivity={selectActivity}
+					setBuddyMatches={setBuddyMatches}
+				/>
 			)}
-			{authenticated && user && likedActivity && <BuddyList />}
+			{authenticated && user && likedActivity && (
+				<BuddyList buddyMatches={buddyMatches} />
+			)}
 		</div>
 	);
 };
