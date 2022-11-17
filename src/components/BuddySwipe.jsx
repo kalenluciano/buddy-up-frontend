@@ -11,11 +11,10 @@ const BuddySwipe = ({ user, selectActivity }) => {
   const [clickNext, toggleClickNext] = useState(false)
   const [clickBuddyUp, toggleClickBuddyUp] = useState(false)
 
-
   const getPoolOfBuddies = async () => {
-	const listOfActivityRejects = []
-	let compare = []
-	let match;
+    const listOfActivityRejects = []
+    const compare = []
+    let match;
     const response = await axios.get(
       `${BASE_URL}/user-activities/activity/${selectActivity.id}`
     )
@@ -27,66 +26,43 @@ const BuddySwipe = ({ user, selectActivity }) => {
       const rejectedBuddiesList = await axios.get(
         `${BASE_URL}/next-buddies/all/user/${user.id}`
       )
-      console.log(rejectedBuddiesList)
-
-	  const userRejectedBuddiesActivities = await axios.get(
-		`${BASE_URL}/next-buddy-activities/raw/activity/${selectActivity.id}`
-	  )
-	  console.log(userRejectedBuddiesActivities)
-     const listOfRejectees = rejectedBuddiesList.data.map(rejectee=>{
-		return rejectee.id
-	 })
-
-	
-
-userRejectedBuddiesActivities.data.forEach(userRejectedBuddy=>{
-	
-	compare.push(userRejectedBuddy.userRejectedBuddyId)
-	 match= listOfRejectees.filter((rejectedBuddyActivity)=>compare.indexOf(rejectedBuddyActivity)!==-1)
-	
-})
-
-listOfActivityRejects.push(...match)
-
-	const listOfRejectsToRemove =[]
-
-rejectedBuddiesList.data.forEach((buddy)=>
-{ listOfActivityRejects.forEach((reject)=>{ 
-  if (buddy.id===reject){
-    listOfRejectsToRemove.push(buddy)
-  }
-})
-
-console.log(listOfRejectsToRemove)
-
-})
-
-const potentialBuddiesNotRejected =[]
-console.log(userActivitiesListFiltered)
-userActivitiesListFiltered.forEach((buddy)=>
-{ let match=false
-  // if (listOfRejectsToRemove.map(buddy.id)){
-
-  // }
-  listOfRejectsToRemove.forEach((reject)=>{ 
-  while (!match){
-    if (buddy.id===reject.rejectedBuddyId){
-      userActivitiesListFiltered.splice(userActivitiesListFiltered.indexOf(buddy),1)
-     match=true
+      const userRejectedBuddiesActivities = await axios.get(
+      `${BASE_URL}/next-buddy-activities/raw/activity/${selectActivity.id}`
+      )
+    
+      const listOfRejectees = rejectedBuddiesList.data.map(rejectee=>{
+      return rejectee.id
+      })
+      userRejectedBuddiesActivities.data.forEach(userRejectedBuddy=>{
+        compare.push(userRejectedBuddy.userRejectedBuddyId)
+        match= listOfRejectees.filter((rejectedBuddyActivity)=>compare.indexOf(rejectedBuddyActivity)!==-1)
+        
+      })
+      listOfActivityRejects.push(...match)
+      const listOfRejectsToRemove =[]
+      rejectedBuddiesList.data.forEach((buddy)=>
+      { listOfActivityRejects.forEach((reject)=>{ 
+        if (buddy.id===reject){
+          listOfRejectsToRemove.push(buddy)
+        }
+      })
+      })
+      const potentialBuddiesRejected =[]
+      userActivitiesListFiltered.forEach((buddy)=> { 
+        listOfRejectsToRemove.forEach((reject)=>{ 
+          if (buddy.id===reject.rejectedBuddyId && !potentialBuddiesRejected.includes(buddy)){
+            potentialBuddiesRejected.push(buddy)
+        }
+      })
+      })
+      potentialBuddiesRejected.forEach((rejectee) => {
+        if (userActivitiesListFiltered.includes(rejectee)) {
+          userActivitiesListFiltered.splice(userActivitiesListFiltered.indexOf(rejectee), 1)
+        }
+      })
+      // remove buddies that the user already liked FOR THIS ACTIVITY
     }
-  }
-
-})
-})
-console.log(userActivitiesListFiltered)
-
-   
-
-
-    // remove buddies that the user already liked FOR THIS ACTIVITY
-    // removed buddies that the user already rejected FOR THIS ACTIVITY
-    setPoolOfBuddies(userActivitiesListFiltered)
-  }
+  setPoolOfBuddies(userActivitiesListFiltered)
 }
 
   const getRandomPotentialBuddy = () => {
