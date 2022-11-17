@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { BASE_URL } from '../globals';
-import BuddyList from '../components/BuddyList';
 import BuddySwipe from '../components/BuddySwipe';
 import SignUp from '../components/SignUp';
 import LikeActivityButton from '../components/LikeActivityButton';
@@ -13,7 +12,6 @@ const Activity = ({ user, authenticated }) => {
 	const [selectActivity, setSelectActivity] = useState({});
 	const [likedActivity, toggleLikedActivity] = useState(false);
 	const [userActivityList, setUserActivityList] = useState([]);
-	const [buddyMatches, setBuddyMatches] = useState([]);
 
 	let { activity_id } = useParams();
 	let navigate = useNavigate();
@@ -97,13 +95,10 @@ const Activity = ({ user, authenticated }) => {
 			)}
 			{authenticated && user && likedActivity && (
 				<BuddySwipe
+					authenticated={authenticated}
 					user={user}
 					selectActivity={selectActivity}
-					setBuddyMatches={setBuddyMatches}
 				/>
-			)}
-			{authenticated && user && likedActivity && (
-				<BuddyList buddyMatches={buddyMatches} />
 			)}
 		</div>
 	);
