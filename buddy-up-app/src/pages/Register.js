@@ -107,7 +107,7 @@ const Register = () => {
 						onChange={handleChange}
 						name="phoneNumber"
 						type="text"
-						placeholder="555-789-2460"
+						placeholder="123-456-7891"
 						value={formValues.phoneNumber}
 						required
 					/>
