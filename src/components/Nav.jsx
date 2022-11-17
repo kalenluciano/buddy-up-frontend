@@ -32,9 +32,9 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
             Sign Out
           </Link>
         </div>
-        <div className='searchBar'>
+      
           <Search onSubmit={handleSubmit} handleChange={handleChange} value={searchQuery}/>
-        </div>
+      
       </nav>
     )
   }

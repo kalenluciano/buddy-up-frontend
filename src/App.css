@@ -1,6 +1,7 @@
 .App {
   text-align: center;
 }
+
 body {
   background-color: rgba(169, 169, 169, 0.747);
 }
@@ -12,7 +13,6 @@ body {
 }
 
 .nav {
-  font-family: 'Timmana';
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   background-color: rgba(169, 169, 169, 0.747);
@@ -31,7 +31,7 @@ body {
   background-size: cover;
   background-position: 20% 45%;
   background-repeat: no-repeat;
-  height: 200px;
+  height: 250px;
   width: 100%;
 }
 
@@ -53,4 +53,41 @@ body {
 .homeCategory img {
   width: 450px;
   height: auto
+}
+
+.aboutMeTitle {
+  font-size: 60px;
+  background-color: cadetblue;
+  height: 300px;
+  z-index: 1;
+}
+
+.aboutMeTitle h1 {
+  
+  position: absolute;
+  left: 38%;
+}
+
+.aboutMeInfo {
+  border: 6px solid black;
+  position: absolute;
+  left: 29%;
+  width: 800px;
+  margin-top: -30px;
+  font-size: 25px;
+  background-color: rgba(197, 165, 165, 0.747);
+  z-index: 2;
+}
+
+.aboutMeInfo ul {
+  list-style: none;
+  
+}
+
+.aboutMeInfo button {
+  background-color: transparent;
+  height: 35px;
+  width: 90px;
+  border-radius: 10px;
+  font-size: 18px;
 }
