@@ -23,25 +23,31 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
   if (user) {
     authenticatedOptions = (
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Search onSubmit={handleSubmit} handleChange={handleChange} value={searchQuery}/>
-        <Link to={`/profile/${user.id}`}>Profile</Link>
-        <Link to="/add-activity">Add Activity</Link>
-        <Link onClick={handleLogOut} to="/">
-          Sign Out
-        </Link>
+        <div className='nav'>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to={`/profile/${user.id}`}>Profile</Link>
+          <Link to="/add-activity">Add Activity</Link>
+          <Link onClick={handleLogOut} to="/">
+            Sign Out
+          </Link>
+        </div>
+        <div className='searchBar'>
+          <Search onSubmit={handleSubmit} handleChange={handleChange} value={searchQuery}/>
+        </div>
       </nav>
     )
   }
 
   const publicOptions = (
     <nav>
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-      <Search onSubmit={handleSubmit} handleChange={handleChange} value={searchQuery}/>
-      <Link to="/sign-in">Login</Link>
-      <Link to="/register">Register</Link>
+      <div className='nav'>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/sign-in">Login</Link>
+        <Link to="/register">Register</Link>
+        <Search onSubmit={handleSubmit} handleChange={handleChange} value={searchQuery}/>
+      </div>
     </nav>
   )
 

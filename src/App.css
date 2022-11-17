@@ -1,3 +1,56 @@
 .App {
   text-align: center;
 }
+body {
+  background-color: rgba(169, 169, 169, 0.747);
+}
+.nav a {
+  display: inline;
+  text-align: right;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+.nav {
+  font-family: 'Timmana';
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  background-color: rgba(169, 169, 169, 0.747);
+  height: 50px;
+  padding-top: 5px;
+  font-size: 25px;
+  color: #031736;
+  align-items: center;
+  
+}
+
+.homePageTitle {
+
+  text-align: center;
+  background-image: url('https://media.istockphoto.com/id/517180252/photo/chicago-skyline.jpg?s=612x612&w=0&k=20&c=hjkUVtQPVKHONU5N1XdQ73uQU01Z2LAdwRWYbeng0JY=');
+  background-size: cover;
+  background-position: 20% 45%;
+  background-repeat: no-repeat;
+  height: 200px;
+  width: 100%;
+}
+
+.homePageTitle h1 {
+  font-size: 60px;
+  position:absolute;
+  left:23%;
+  letter-spacing: 5px;
+}
+
+.homeCategory {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: .5px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.homeCategory img {
+  width: 450px;
+  height: auto
+}
