@@ -13,6 +13,9 @@ const BuddySwipe = ({ user, selectActivity }) => {
 
 
   const getPoolOfBuddies = async () => {
+	const listOfActivityRejects = []
+	let compare = []
+	let match;
     const response = await axios.get(
       `${BASE_URL}/user-activities/activity/${selectActivity.id}`
     )
@@ -36,16 +39,19 @@ const BuddySwipe = ({ user, selectActivity }) => {
 
 	 console.log(listOfRejectees)
 
-	 const listOfActivityRejects = []
+userRejectedBuddiesActivities.data.forEach(userRejectedBuddy=>{
+	
+	compare.push(userRejectedBuddy.userRejectedBuddyId)
+	console.log(compare)
+	console.log(listOfRejectees)
+	 match= listOfRejectees.filter((rejectedBuddyActivity)=>compare.indexOf(rejectedBuddyActivity)!==-1)
+	
+})
+listOfActivityRejects.push(match)
+		console.log(listOfActivityRejects)
 
-	 userRejectedBuddiesActivities.data.forEach(userRejectedBuddy=>{
-		for (let i =0 ; i<listOfRejectees; i++){
-			if (userRejectedBuddy.userRejectBuddyId === listOfRejectees[i]){
-				listOfActivityRejects.push(listOfRejectees[i])
-			}
-		}
-	 })
-	 console.log(listOfActivityRejects)
+		
+	
 	//   const filteredOutRejecteeds = userActivitiesListFiltered
     }
 
