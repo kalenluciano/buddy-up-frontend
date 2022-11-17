@@ -22,10 +22,33 @@ const BuddySwipe = ({ user, selectActivity }) => {
       )
     if (user !==null && user) {
       const rejectedBuddiesList = await axios.get(
-        `${BASE_URL}/next-buddies/rejected-buddy/${user.id}`
+        `${BASE_URL}/next-buddies/all/user/${user.id}`
       )
       console.log(rejectedBuddiesList)
+
+	  const userRejectedBuddiesActivities = await axios.get(
+		`${BASE_URL}/next-buddy-activities/raw/activity/${selectActivity.id}`
+	  )
+	  console.log(userRejectedBuddiesActivities)
+     const listOfRejectees = rejectedBuddiesList.data.map(rejectee=>{
+		return rejectee.id
+	 })
+
+	 console.log(listOfRejectees)
+
+	 const listOfActivityRejects = []
+
+	 userRejectedBuddiesActivities.data.forEach(userRejectedBuddy=>{
+		for (let i =0 ; i<listOfRejectees; i++){
+			if (userRejectedBuddy.userRejectBuddyId === listOfRejectees[i]){
+				listOfActivityRejects.push(listOfRejectees[i])
+			}
+		}
+	 })
+	 console.log(listOfActivityRejects)
+	//   const filteredOutRejecteeds = userActivitiesListFiltered
     }
+
 
     // remove buddies that the user already liked FOR THIS ACTIVITY
     // removed buddies that the user already rejected FOR THIS ACTIVITY
