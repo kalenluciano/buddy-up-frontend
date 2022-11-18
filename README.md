@@ -24,13 +24,13 @@ BuddyUp allows you to select an activity and match with a buddy of your choice.
 ***
 
 ### ***Getting Started***
-1. Fork and clone
-2. npm install
-3. npm start
+1. `Fork` and `clone`
+2. Run `npm install`
+3. Run `npm start`
 
-A trello board used to keep track of development progress can be [viewed here](https://trello.com/b/KJMqQe2k/amusement-park).
+A trello board used to keep track of development progress can be [viewed here](https://trello.com/b/y27ScqGm/buddy-up)
 
-The project itself was deployed and can be [viewed here]().
+The project itself was deployed and can be [viewed here](https://buddy-match-up.herokuapp.com)
 
 ***
 
