@@ -1,0 +1,11 @@
+.SignUp {
+    margin: 5%;
+}
+
+.SignUp button {
+    font-size: 2rem;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #FDC4E6;
+    cursor: pointer;
+}

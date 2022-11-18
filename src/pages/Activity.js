@@ -91,7 +91,6 @@ const Activity = ({ user, authenticated }) => {
 						{selectActivity.city}, {selectActivity.state}{' '}
 						{selectActivity.zipCode} {selectActivity.country}
 					</p>
-					{!authenticated && !user && <SignUp />}
 					{authenticated && user && (
 						<LikeActivityButton
 							likedActivity={likedActivity}
@@ -114,6 +113,7 @@ const Activity = ({ user, authenticated }) => {
 					)}
 				</div>
 			</div>
+			{!authenticated && !user && <SignUp />}
 			{authenticated && user && likedActivity && (
 				<BuddySwipe
 					authenticated={authenticated}

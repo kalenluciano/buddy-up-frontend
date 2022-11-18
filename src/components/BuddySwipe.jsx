@@ -4,6 +4,7 @@ import { BASE_URL } from '../globals'
 import UserCard from './UserCard'
 import Client from '../services/api'
 import BuddyList from '../components/BuddyList';
+import '../styling/BuddySwipe.css'
 
 const BuddySwipe = ({ user, selectActivity }) => {
   const [poolOfBuddies, setPoolOfBuddies] = useState([])
@@ -230,23 +231,28 @@ const BuddySwipe = ({ user, selectActivity }) => {
   }, [poolOfBuddies])
 
   return (
-    <div>
-      <h1>Buddy Swipe</h1>
-      {noMorePotentialBuddies ? (
-        <h3>Waiting for More Buddies...</h3>
-      ) : (
-        <UserCard
-          userBuddy={potentialBuddy}
-          getNextUser={getNextUser}
-          addUserToBuddyList={addUserToBuddyList}
-        />
-      )}
-      {user && connection && (<h1>Buddy Matches</h1>)}
-      {user && connection && (
-        buddyConnections.map((buddyConnection) => 
-				<BuddyList key={buddyConnection.id} buddyConnection={buddyConnection} />
-      )
-			)}
+    <div className='buddySwipeAndMatch'>
+      <div className='buddySwipe'>
+        <h1>Buddy Swipe</h1>
+        {noMorePotentialBuddies ? (
+          <h3>Waiting for More Buddies...</h3>
+        ) : (
+          <UserCard
+            userBuddy={potentialBuddy}
+            getNextUser={getNextUser}
+            addUserToBuddyList={addUserToBuddyList}
+          />
+        )}
+      </div>
+      <div className='buddyMatch'>
+        {user && (<h1>Buddy Matches</h1>)}
+        {user && !connection && (<h3>Waiting for Buddies To Match...</h3>)}
+        {user && connection && (
+          buddyConnections.map((buddyConnection) => 
+          <BuddyList key={buddyConnection.id} buddyConnection={buddyConnection} />
+        )
+        )}
+      </div>
     </div>
   )
 }

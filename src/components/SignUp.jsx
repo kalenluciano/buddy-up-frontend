@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom"
+import '../styling/SignUp.css'
 
-const SignUp = ({}) => {
-
-
+const SignUp = () => {
 return(
-    <div>
-        <h4>If you would like to match with a buddy, click the button below</h4>
-        <Link to={'/register'}>BuddyUp</Link>
+    <div className="SignUp">
+        <h2>If you would like to match with a buddy, click to sign up</h2>
+        <Link to={'/register'}><button>BuddyUp</button></Link>
     </div>
     
 )

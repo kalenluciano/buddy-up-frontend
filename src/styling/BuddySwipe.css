@@ -1,27 +1,17 @@
-.activity {
-   margin: 2rem 0 0 0;
-   color: white;
-}
-
-.activityInfo {
+.buddySwipeAndMatch {
+    margin: 2.5% 0;
+    color: white;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
 }
 
-.activityImage {
-    height: 50vh;
-    max-width: 750px;
-    max-height: 750px;
+.buddySwipe, .buddySwipe *, .buddyMatch, .buddyMatch * {
+    max-width: 45vw;
 }
 
-.activityDetails {
-    width: 100%;
-    max-width: 750px;
-}
-
-.activityDetails button {
+.buddySwipeAndMatch button {
     height: 30px;
     width: 150px;
     border-radius: 10px;
