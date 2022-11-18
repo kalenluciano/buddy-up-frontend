@@ -48,7 +48,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
         <Link to="/sign-in">Login</Link>
         <Link to="/register">Register</Link>
         <Search onSubmit={handleSubmit} handleChange={handleChange} value={searchQuery}/>
-     
+      
     </nav>
   )
 

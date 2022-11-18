@@ -1,3 +1,5 @@
+import '../styling/Search.css'
+
 const Search = ({onSubmit, value, handleChange}) => {
 	return (
 	<form className="searchbar" onSubmit={onSubmit}>

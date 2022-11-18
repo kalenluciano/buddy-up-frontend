@@ -69,7 +69,12 @@ const BuddySwipe = ({ user, selectActivity }) => {
       compare.push(userRejectedBuddy.userRejectedBuddyId)
       match = listOfUserRejectedBuddyPairById.filter((userRejectedBuddyPairId)=>compare.indexOf(userRejectedBuddyPairId)!==-1)
     })
-    const filteredListOfUserRejectedBuddyPairByActivityId = [...match]
+    const filteredListOfUserRejectedBuddyPairByActivityId = []
+    if (match) {
+    if (match.length > 0) {
+      filteredListOfUserRejectedBuddyPairByActivityId.push(...match)
+      }
+    }
     return filteredListOfUserRejectedBuddyPairByActivityId
   }
 
@@ -80,7 +85,12 @@ const BuddySwipe = ({ user, selectActivity }) => {
       compare.push(userBuddy.userBuddyId)
       match = listOfUserBuddyPairById.filter((userBuddyPairId)=>compare.indexOf(userBuddyPairId)!==-1)
     })
-    const filteredListOfUserBuddyPairByActivityId = [...match]
+    const filteredListOfUserBuddyPairByActivityId = []
+    if (match) {
+      if (match.length > 0) {
+      filteredListOfUserBuddyPairByActivityId.push(...match)
+      }
+    }
     return filteredListOfUserBuddyPairByActivityId
   }
 

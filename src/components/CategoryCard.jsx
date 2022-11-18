@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import { useEffect } from 'react';
+import '../styling/CategoryCard.css'
 
 const CategoryCard = ({id, name, image, allActivities}) => {
 	const [activityNumber, setActivityNumber] = useState(0)
@@ -19,11 +20,12 @@ const CategoryCard = ({id, name, image, allActivities}) => {
 	}, [allActivities])
 
 	return (
-		<div>
-			<img src={image} alt={name}/>
-			<h4>{name}</h4>
-			{!!activityNumber && <p>{activityNumber}</p> }
-			
+		<div className='categoryCard'>
+			<img className='categoryCardImage' src={image} alt={name}/>
+			<div className='categoryDescription'>
+				<h4>{name}</h4>
+				<p>{activityNumber}</p>
+			</div>
 		</div>
 	);
 };

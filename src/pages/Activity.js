@@ -7,11 +7,14 @@ import BuddySwipe from '../components/BuddySwipe';
 import SignUp from '../components/SignUp';
 import LikeActivityButton from '../components/LikeActivityButton';
 import Client from '../services/api';
+import '../styling/Activity.css';
 
 const Activity = ({ user, authenticated }) => {
 	const [selectActivity, setSelectActivity] = useState({});
 	const [likedActivity, toggleLikedActivity] = useState(false);
 	const [userActivityList, setUserActivityList] = useState([]);
+	const [calendarDate, setcalendarDate] = useState('');
+	const [time, setTime] = useState('');
 
 	let { activity_id } = useParams();
 	let navigate = useNavigate();
@@ -39,6 +42,14 @@ const Activity = ({ user, authenticated }) => {
 		}
 	};
 
+	const formatDate = () => {
+		const dateToConvert = new Date(selectActivity.date);
+		const newDate = dateToConvert.toDateString();
+		const newTime = dateToConvert.toLocaleTimeString('en-US');
+		setcalendarDate(newDate);
+		setTime(newTime);
+	};
+
 	const handleUpdateClick = () => {
 		navigate(`/update-activity/${selectActivity.id}`);
 	};
@@ -58,41 +69,51 @@ const Activity = ({ user, authenticated }) => {
 
 	useEffect(() => {
 		checkActivityListForLike();
+		formatDate();
 	}, [selectActivity, userActivityList]);
 
 	return (
-		<div>
-			<img src={selectActivity.image} alt={selectActivity.name} />
-			<div>
-				<h1>{selectActivity.name}</h1>
-			</div>
-			<h2>{selectActivity.date}</h2>
-			<p>{selectActivity.description}</p>
-			<h4>
-				{selectActivity.streetAddress}
-				{selectActivity.streetAddress2}
-				{selectActivity.city}
-				{selectActivity.state}
-				{selectActivity.zipCode}
-				{selectActivity.country}
-			</h4>
-			{!authenticated && !user && <SignUp />}
-			{authenticated && user.id === selectActivity.userId && (
-				<button onClick={handleUpdateClick}>Update Activity</button>
-			)}
-			{authenticated && user.id === selectActivity.userId && (
-				<button onClick={handleDeleteClick}>Delete Activity</button>
-			)}
-			{authenticated && user && (
-				<LikeActivityButton
-					likedActivity={likedActivity}
-					toggleLikedActivity={toggleLikedActivity}
-					userId={user.id}
-					selectActivityId={selectActivity.id}
-					setUserActivityList={setUserActivityList}
-					userActivityList={userActivityList}
+		<div className="activity">
+			<div className="activityInfo">
+				<img
+					className="activityImage"
+					src={selectActivity.image}
+					alt={selectActivity.name}
 				/>
-			)}
+				<div className="activityDetails">
+					<h1>{selectActivity.name}</h1>
+					<h2>{calendarDate}</h2>
+					<h3>{time}</h3>
+					<p>{selectActivity.description}</p>
+					<p>{selectActivity.streetAddress}</p>
+					<p>{selectActivity.streetAddress2}</p>
+					<p>
+						{selectActivity.city}, {selectActivity.state}{' '}
+						{selectActivity.zipCode} {selectActivity.country}
+					</p>
+					{!authenticated && !user && <SignUp />}
+					{authenticated && user && (
+						<LikeActivityButton
+							likedActivity={likedActivity}
+							toggleLikedActivity={toggleLikedActivity}
+							userId={user.id}
+							selectActivityId={selectActivity.id}
+							setUserActivityList={setUserActivityList}
+							userActivityList={userActivityList}
+						/>
+					)}
+					{authenticated && user.id === selectActivity.userId && (
+						<button onClick={handleUpdateClick}>
+							Update Activity
+						</button>
+					)}
+					{authenticated && user.id === selectActivity.userId && (
+						<button onClick={handleDeleteClick}>
+							Delete Activity
+						</button>
+					)}
+				</div>
+			</div>
 			{authenticated && user && likedActivity && (
 				<BuddySwipe
 					authenticated={authenticated}

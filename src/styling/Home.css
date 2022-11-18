@@ -1,0 +1,37 @@
+.homePageTitle {
+    text-align: center;
+    /* background-image: url('https://theplanetd.com/images/Best-Views-in-New-York-City.jpg');
+    background-size: cover;
+    background-position: 20% 55%;
+    background-repeat: no-repeat; */
+    /* height: 250px;
+    width: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 2rem 0;
+}
+
+.homePageTitle img {
+    width: 100vw;
+    height: 30vh;
+    object-fit: cover;
+    object-position: center;
+    position: relative;
+    opacity: 75%;
+}
+
+.homePageTitle h1 {
+    font-size: 60px;
+    letter-spacing: 5px;
+    color: white;
+    position:absolute;
+}
+
+.homeCategory {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+

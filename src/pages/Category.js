@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BASE_URL } from '../globals';
 import ActivityCard from '../components/ActivityCard';
+import '../styling/Category.css';
 
 const Category = () => {
 	let { category_id } = useParams();
@@ -24,20 +25,20 @@ const Category = () => {
 	}, [categoriesId]);
 
 	return category_id !== null ? (
-		<div>
+		<div className="activityList">
 			{activities.map((activity) => (
-				<Link to={`/activity/${activity.id}`} key={activity.id}>
-					<ActivityCard
-						name={activity.name}
-						image={activity.image}
-						date={activity.date}
-						streetAddress={activity.streetAddress}
-						city={activity.city}
-						state={activity.state}
-						zipCode={activity.zipCode}
-						country={activity.country}
-					/>
-				</Link>
+				<ActivityCard
+					key={activity.id}
+					name={activity.name}
+					image={activity.image}
+					date={activity.date}
+					streetAddress={activity.streetAddress}
+					city={activity.city}
+					state={activity.state}
+					zipCode={activity.zipCode}
+					country={activity.country}
+					id={activity.id}
+				/>
 			))}
 		</div>
 	) : null;
