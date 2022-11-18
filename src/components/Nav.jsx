@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import Search from './Search'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import '../styling/Nav.css'
 
 const Nav = ({ authenticated, user, handleLogOut }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -23,7 +24,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
   if (user) {
     authenticatedOptions = (
       <nav>
-        <div className='navAfter'>
+        
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to={`/profile/${user.id}`}>Profile</Link>
@@ -32,7 +33,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
             Sign Out
           </Link>
           <Search onSubmit={handleSubmit} handleChange={handleChange} value={searchQuery}/>
-        </div>
+        
       
       
       </nav>
@@ -41,13 +42,13 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
 
   const publicOptions = (
     <nav>
-      <div className='navBefore'>
+      
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/sign-in">Login</Link>
         <Link to="/register">Register</Link>
         <Search onSubmit={handleSubmit} handleChange={handleChange} value={searchQuery}/>
-      </div>
+     
     </nav>
   )
 
