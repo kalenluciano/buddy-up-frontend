@@ -95,7 +95,7 @@ body {
 }
 
 .signInPage {
-  border: .2px solid  rgba(177, 167, 167, 0.747);;
+  border: .2px solid  rgba(177, 167, 167, 0.747);
   border-radius: 25px;
   position: absolute;
   height: 600px;
@@ -135,4 +135,40 @@ body {
   font-size: 15px;
   width: 200px;
   border-radius: 5px;
+}
+
+.registerPage {
+  border: 2px solid white;
+  position: absolute;
+  margin-left: 620px;
+  margin-top: 40px;
+  height: 850px;
+  width: 500px;
+  border: .2px solid  rgba(177, 167, 167, 0.747);
+  background-color: rgba(177, 167, 167, 0.747);
+}
+
+.label {
+  margin-top: 10px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.registerPage h1{
+  font-size: 50px;
+}
+
+.registerPage input {
+  height: 20px;
+  width: 200px;
+  border: 2px solid black;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  margin-top: 10px;
+  background-color: transparent;
+}
+
+.registerPage textarea{
+  background-color: rgba(194, 189, 189, 0.747);
 }
