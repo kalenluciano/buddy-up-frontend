@@ -1,14 +1,14 @@
 const Search = ({onSubmit, value, handleChange}) => {
 	return (
-	<form onSubmit={onSubmit}>
-		<input
+	<form className="searchbar" onSubmit={onSubmit}>
+		<input 
 			type="text"
 			name="search"
 			value={value}
 			placeholder="Search Activities"
 			onChange={handleChange}
 		/>
-	<button type="submit">Search</button>
+		<button type="submit">Search</button>
 	</form>
 	);
 };

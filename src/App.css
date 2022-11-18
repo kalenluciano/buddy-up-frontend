@@ -1,3 +1,174 @@
 .App {
   text-align: center;
 }
+
+body {
+  background-color: rgba(169, 169, 169, 0.747);
+}
+.nav a {
+  display: inline;
+  text-align: right;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  background-color: rgba(169, 169, 169, 0.747);
+  height: 50px;
+  padding-top: 5px;
+  font-size: 25px;
+  color: #031736;
+  align-items: center;
+}
+
+.homePageTitle {
+  text-align: center;
+  background-image: url('https://media.istockphoto.com/id/517180252/photo/chicago-skyline.jpg?s=612x612&w=0&k=20&c=hjkUVtQPVKHONU5N1XdQ73uQU01Z2LAdwRWYbeng0JY=');
+  background-size: cover;
+  background-position: 20% 45%;
+  background-repeat: no-repeat;
+  height: 250px;
+  width: 100%;
+}
+
+.homePageTitle h1 {
+  font-size: 60px;
+  position:absolute;
+  left:23%;
+  letter-spacing: 5px;
+}
+
+.homeCategory {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: .5px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.homeCategory img {
+  width: 450px;
+  height: auto
+}
+
+.aboutMeTitle {
+  font-size: 60px;
+  background-color: cadetblue;
+  height: 300px;
+  z-index: 1;
+}
+
+.aboutMeTitle h1 {
+  position: absolute;
+  left: 38%;
+}
+
+.aboutMeInfo {
+  border: 0 solid rgba(177, 167, 167, 0.747);
+  border-radius: 10px;
+  position: relative;
+  left: 29%;
+  width: 800px;
+  margin-top: -60px;
+  font-size: 25px;
+  background-color: rgba(177, 167, 167, 0.747);
+  z-index: 2;
+}
+
+.aboutMeInfo ul {
+  list-style: none;
+  
+}
+
+.aboutMeInfo button {
+  background-color: transparent;
+  height: 35px;
+  width: 90px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.aboutMeInfo p, .aboutMeInfo ul, .aboutMeInfo a, .aboutMeInfo button {
+  margin: 20px 20px 20px 20px;
+}
+
+.signInPage {
+  border: .2px solid  rgba(177, 167, 167, 0.747);
+  border-radius: 25px;
+  position: absolute;
+  height: 600px;
+  width: 500px;
+  margin-top: 50px;
+  margin-left: 620px;
+  background-color: rgba(177, 167, 167, 0.747);
+}
+
+.signInPage h1{
+  font-size: 60px;
+  background-color: rgba(163, 136, 136, 0.747);
+  margin-top: 0;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  height: 100px;
+}
+
+.loginLabel{
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.signInPage input{
+  height: 20px;
+  width: 200px;
+  border: 2px solid black;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  margin-top: 10px;
+  background-color: transparent;
+}
+
+.signInPage button {
+  margin-top: 50px;
+  font-size: 15px;
+  width: 200px;
+  border-radius: 5px;
+}
+
+.registerPage {
+  border: 2px solid white;
+  position: absolute;
+  margin-left: 620px;
+  margin-top: 40px;
+  height: 850px;
+  width: 500px;
+  border: .2px solid  rgba(177, 167, 167, 0.747);
+  background-color: rgba(177, 167, 167, 0.747);
+}
+
+.label {
+  margin-top: 10px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.registerPage h1{
+  font-size: 50px;
+}
+
+.registerPage input {
+  height: 20px;
+  width: 200px;
+  border: 2px solid black;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  margin-top: 10px;
+  background-color: transparent;
+}
+
+.registerPage textarea{
+  background-color: rgba(194, 189, 189, 0.747);
+}
