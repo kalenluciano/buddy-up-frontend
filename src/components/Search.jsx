@@ -14,3 +14,4 @@ const Search = ({onSubmit, value, handleChange}) => {
 };
 
 export default Search;
+   

@@ -23,7 +23,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
   if (user) {
     authenticatedOptions = (
       <nav>
-        <div className='nav'>
+        <div className='navAfter'>
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to={`/profile/${user.id}`}>Profile</Link>
@@ -31,17 +31,15 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
           <Link onClick={handleLogOut} to="/">
             Sign Out
           </Link>
-        </div>
-      
           <Search onSubmit={handleSubmit} handleChange={handleChange} value={searchQuery}/>
-      
+        </div>
       </nav>
     )
   }
 
   const publicOptions = (
     <nav>
-      <div className='nav'>
+      <div className='navBefore'>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/sign-in">Login</Link>

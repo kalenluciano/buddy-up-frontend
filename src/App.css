@@ -6,7 +6,7 @@ body {
   background-color: rgba(169, 169, 169, 0.747);
 }
 
-.nav {
+.navBefore {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   background-color: rgba(169, 169, 169, 0.747);
@@ -17,7 +17,25 @@ body {
   align-items: center;
 }
 
-.nav a {
+.navBefore a {
+  display: inline;
+  text-align: right;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+.navAfter {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  background-color: rgba(169, 169, 169, 0.747);
+  height: 50px;
+  padding-top: 5px;
+  font-size: 25px;
+  color: #031736;
+  align-items: center;
+}
+
+.navAfter a {
   display: inline;
   text-align: right;
   margin-right: 20px;
@@ -27,17 +45,19 @@ body {
 .searchbar input {
   width: 200px;
   height: 30px;
-  border: 1px solid transparent;
+  border: 1px solid;
   border-right: none;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+  background-color: rgba(229, 223, 223, 0.747);
 }
 .searchbar button {
   height: 34px;
-  border: 1px solid transparent;
+  border: 1px solid;
   border-left: none;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  background-color: rgba(203, 196, 196, 0.747);
 }
 
 .homePageTitle {
@@ -61,7 +81,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: .5px;
-  margin-top: 20px;
+  margin-top: 10px;
   justify-content: center;
 }
 
@@ -73,7 +93,7 @@ body {
 
 .aboutMeTitle {
   font-size: 60px;
-  background-color: cadetblue;
+  background-color:rgb(146, 159, 135);
   height: 300px;
   z-index: 1;
 }
@@ -93,6 +113,7 @@ body {
   font-size: 25px;
   background-color: rgba(177, 167, 167, 0.747);
   z-index: 2;
+  box-shadow: 20px 20px 50px rgb(173, 152, 152);
 }
 
 .aboutMeInfo ul {
@@ -121,6 +142,7 @@ body {
   margin-top: 50px;
   margin-left: 620px;
   background-color: rgba(177, 167, 167, 0.747);
+  box-shadow: 20px 20px 50px 10px rgb(173, 152, 152)
 }
 
 .signInPage h1{
@@ -153,8 +175,9 @@ body {
   font-size: 15px;
   width: 200px;
   border-radius: 5px;
+  background-color: transparent;
 }
-
+ 
 .registerPage {
   border: 2px solid white;
   position: absolute;
@@ -163,7 +186,9 @@ body {
   height: 850px;
   width: 500px;
   border: .2px solid  rgba(177, 167, 167, 0.747);
+  border-radius: 25px;
   background-color: rgba(177, 167, 167, 0.747);
+  box-shadow: 20px 20px 50px 10px rgb(173, 152, 152)
 }
 
 .label {
@@ -173,7 +198,12 @@ body {
 }
 
 .registerPage h1{
-  font-size: 50px;
+    font-size: 60px;
+    background-color: rgba(163, 136, 136, 0.747);
+    margin-top: 0;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 100px;
 }
 
 .registerPage input {
@@ -189,4 +219,106 @@ body {
 
 .registerPage textarea{
   background-color: rgba(194, 189, 189, 0.747);
+  height: 100px;
+  width: 300px
+}
+
+.registerPage button {
+  margin-top: 20px;
+  font-size: 15px;
+  width: 200px;
+  border-radius: 15px;
+  background-color: transparent;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 500px 500px;
+}
+
+.profileImage img {
+  height: auto;
+  width: 900px;
+  grid-column: 1/2;
+  margin-top: 20px;
+  margin-left: 20px;
+  border-radius: 80px;
+  box-shadow: 20px 20px 50px 10px rgb(173, 152, 152)
+  ;
+}
+
+.profileRight {
+  grid-column: 2/3;
+  margin-top: 10px;
+  
+}
+
+.profileRight h1{
+  font-size: 40px;
+  margin-top: 10px;
+}
+
+.profileRight h2{
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+.profileRight p {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.profileRight button {
+  margin-right: 20px;
+  margin-left: 20px;
+  height: 30px;
+  width: 150px;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: transparent;
+}
+
+.addActivityPage {
+  border: 2px solid white;
+  position: absolute;
+  margin-left: 550px;
+  margin-top: 40px;
+  height: 850px;
+  width: 800px;
+  border: .2px solid  rgba(177, 167, 167, 0.747);
+  background-color: rgba(177, 167, 167, 0.747);
+  box-shadow: 20px 20px 50px 10px rgb(173, 152, 152)
+}
+
+.addActivityPage h1 {
+  font-size: 50px;
+}
+
+.addActivityPage input, .addActivityPage select{
+  height: 20px;
+  width: 200px;
+  border: 2px solid black;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+ 
+  margin-bottom: 10px;
+  background-color: transparent;
+}
+
+.addActivityPage textarea{
+  height: 200px;
+  width: 400px;
+  border: 2px solid black;
+  margin-top: 20px;
+  background-color: transparent;
+}
+
+.addActivityPage button {
+  margin-top: 40px;
+  font-size: 20px;
+  width: 500px;
+  border-radius: 15px;
+  background-color: transparent;
 }
