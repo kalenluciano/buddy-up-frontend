@@ -5,12 +5,6 @@
 body {
   background-color: rgba(169, 169, 169, 0.747);
 }
-.nav a {
-  display: inline;
-  text-align: right;
-  margin-right: 20px;
-  text-decoration: none;
-}
 
 .nav {
   display: grid;
@@ -21,6 +15,29 @@ body {
   font-size: 25px;
   color: #031736;
   align-items: center;
+}
+
+.nav a {
+  display: inline;
+  text-align: right;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+.searchbar input {
+  width: 200px;
+  height: 30px;
+  border: 1px solid transparent;
+  border-right: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.searchbar button {
+  height: 34px;
+  border: 1px solid transparent;
+  border-left: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .homePageTitle {
