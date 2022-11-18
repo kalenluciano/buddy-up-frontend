@@ -101,7 +101,7 @@ button, a {
 
 .aboutMeTitle {
   font-size: 60px;
-  background-color:rgb(146, 159, 135);
+  background-color:#FDC4E6;
   height: 300px;
   z-index: 1;
 }
@@ -185,7 +185,7 @@ button, a {
   border-radius: 5px;
   background-color: transparent;
 }
- 
+
 .registerPage {
   border: 2px solid white;
   position: absolute;
@@ -252,7 +252,7 @@ button, a {
   margin-top: 20px;
   margin-left: 20px;
   border-radius: 80px;
-  box-shadow: 20px 20px 50px 10px rgb(173, 152, 152)
+  box-shadow: 20px 20px 50px 10px #FDC4E6
   ;
 }
 
@@ -265,15 +265,17 @@ button, a {
 .profileRight h1{
   font-size: 40px;
   margin-top: 10px;
+  color: white
 }
 
 .profileRight h2{
   font-size: 25px;
   margin-top: 10px;
+  color: #FDC4E6;
 }
 
 .profileRight h3{
-  color: rgb(0, 119, 255);
+  color: white
 }
 
 .profileRight p {
@@ -288,7 +290,7 @@ button, a {
   width: 150px;
   border-radius: 10px;
   font-size: 15px;
-  background-color: transparent;
+  background-color: #FDC4E6;
 }
 
 .addActivityPage {
