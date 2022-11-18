@@ -264,6 +264,10 @@ body {
   margin-top: 10px;
 }
 
+.profileRight h3{
+  color: rgb(0, 119, 255);
+}
+
 .profileRight p {
   font-size: 25px;
   font-weight: 500;

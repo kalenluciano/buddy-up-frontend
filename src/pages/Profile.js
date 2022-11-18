@@ -32,8 +32,8 @@ const Profile = ({ user }) => {
 
   return (
     <div className="profile">
-      {/* display user info */}
       <div className="profileImage">
+        {/* display user info */}
         <img src={profile.profilePicture} alt={profile.name} />
       </div>
       <section className="profileRight">
@@ -42,19 +42,17 @@ const Profile = ({ user }) => {
         </h1>
         <h2>EMAIL</h2>
         <h3>{profile.email}</h3>
-        <h2>PHONE</h2>
+        <h2>CONTACT NUMBER</h2>
         <h3>{profile.phoneNumber}</h3>
         <h2>AGE</h2>
         <h3>{profile.age}</h3>
         <h2>ABOUT ME</h2>
-        <p> {profile.about}</p>
+        <p>{profile.about}</p>
 
         {/* conditionally render an update and delete profile */}
         {user && user.id === userId && (
           <div>
-            <div className="profileInput">
-              <h2>USERNAME</h2>
-            </div>
+            <h2>USERNAME</h2>
             <h3>{profile.username}</h3>
             <button onClick={handleDeleteClick}>Delete Profile</button>
             <button onClick={handleUpdateClick}>Update Profile</button>

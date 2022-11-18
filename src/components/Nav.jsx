@@ -33,6 +33,11 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
           </Link>
           <Search onSubmit={handleSubmit} handleChange={handleChange} value={searchQuery}/>
         </div>
+<<<<<<< HEAD
+=======
+      
+      
+>>>>>>> e3dc79d5409f59ad1ba1e2a7252f6acda98cec66
       </nav>
     )
   }

@@ -170,18 +170,19 @@ const AddActivity = ({ user }) => {
             value={formValues.image}
           />
         </div>
-        <div className="addActivityDescription">
+        <div>
           <label htmlFor="description">Description: </label>
           <div>
             <textarea
               name="description"
-              cols="20"
-              rows="3"
+              cols="30"
+              rows="5"
               onChange={handleChange}
               value={formValues.description}
             ></textarea>
           </div>
         </div>
+
         <button>Submit</button>
       </form>
     </div>
