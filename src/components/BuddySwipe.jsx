@@ -247,11 +247,13 @@ const BuddySwipe = ({ user, selectActivity }) => {
       <div className='buddyMatch'>
         {user && (<h1>Buddy Matches</h1>)}
         {user && !connection && (<h3>Waiting for Buddies To Match...</h3>)}
-        {user && connection && (
-          buddyConnections.map((buddyConnection) => 
-          <BuddyList key={buddyConnection.id} buddyConnection={buddyConnection} />
-        )
-        )}
+        <div className="buddyMatchList">
+          {user && connection && (
+            buddyConnections.map((buddyConnection) => 
+            <BuddyList key={buddyConnection.id} buddyConnection={buddyConnection} />
+          )
+          )}
+        </div>
       </div>
     </div>
   )

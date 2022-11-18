@@ -1,0 +1,12 @@
+.buddyMatchImage {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid pink;
+}
+
+.buddyMatchList {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
