@@ -1,0 +1,51 @@
+.activityCardWithTitle h2 {
+    color: #FDC4E6;
+}
+
+.activityCardWithTitle {
+    margin: 3.5rem;
+}
+
+.activityCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.activityCardImage, .activityDescription {
+    max-height: 500px;
+    max-width: 500px;
+    width: 50vh;
+    height: 30vh;
+    border-radius: 10px;
+}
+
+.activityDescription {
+    position: absolute;
+    top: 0;
+    max-height: 500px;
+    max-width: 500px;
+    width: 50vh;
+    height: 30vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0%;
+    transition: all 0.3s ease;
+}
+
+.activityCard:hover {
+    border-radius: 10px;
+}
+
+.activityDescription:hover {
+    opacity: 100%;
+    border: 2px solid #F2E7E3;
+}

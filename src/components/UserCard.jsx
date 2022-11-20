@@ -1,5 +1,6 @@
 import { useState } from "react"
 import ProfileInfo from "./ProfileInfo"
+import '../styling/UserCard.css'
 
 const UserCard = ({userBuddy, getNextUser, addUserToBuddyList}) => {
     const [showMore, toggleShowMore] = useState(false)
@@ -9,7 +10,7 @@ const UserCard = ({userBuddy, getNextUser, addUserToBuddyList}) => {
     }
 
     return (
-        <div>
+        <div className="userCard">
             {showMore ? <ProfileInfo user={userBuddy} setShowMore={setShowMore}/> : <img src={userBuddy.profilePicture ? userBuddy.profilePicture : null} alt={`${userBuddy.firstName} ${userBuddy.lastName}`}/>}
             <h3>{userBuddy.firstName} {userBuddy.lastName}</h3>
             <p>{userBuddy.age}</p>

@@ -1,0 +1,24 @@
+.searchbar {
+    margin: .5rem 0 0 0;
+}
+
+.searchbar input {
+    width: 200px;
+    height: 30px;
+    border: 1px black solid;
+    border-right: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: rgba(229, 223, 223, 0.3);
+    color: white;
+}
+
+.searchbar button {
+    height: 34px;
+    border: 1px black solid;
+    border-left: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: rgba(203, 196, 196, 0.3);
+    color: white;
+}

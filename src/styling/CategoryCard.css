@@ -1,0 +1,37 @@
+.categoryCardImage, .categoryDescription {
+    max-height: 500px;
+    max-width: 500px;
+    width: 25vh;
+    height: 25vh;
+    border-radius: 10px;
+}
+
+.categoryCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.categoryDescription {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    max-height: 500px;
+    max-width: 500px;
+    width: 25vh;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.categoryCard:hover {
+    border: 2px solid #F2E7E3;
+    border-radius: 10px;
+}

@@ -32,6 +32,7 @@ BuddyUp is specially tailored for those individuals that want to go to certain a
 
 ### **_Getting Started_**
 
+<<<<<<< HEAD
 1. Fork and clone
 2. npm install
 3. npm start
@@ -39,6 +40,16 @@ BuddyUp is specially tailored for those individuals that want to go to certain a
 A trello board used to keep track of development progress can be [viewed here](https://trello.com/b/y27ScqGm/buddy-up).
 
 The project itself was deployed and can be [viewed here](https://buddy-match-up.herokuapp.com/).
+=======
+### ***Getting Started***
+1. `Fork` and `clone`
+2. Run `npm install`
+3. Run `npm start`
+
+A trello board used to keep track of development progress can be [viewed here](https://trello.com/b/y27ScqGm/buddy-up)
+
+The project itself was deployed and can be [viewed here](https://buddy-match-up.herokuapp.com)
+>>>>>>> 03bc5893b292c025e5d8323e931c411be3ddb90a
 
 ---
 
