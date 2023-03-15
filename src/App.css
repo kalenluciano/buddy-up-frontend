@@ -344,7 +344,7 @@ button, a {
     width: 90%;
     margin: 50px auto;
     height: auto;
-    min-height: 500px;
+    min-height: 60%;
   }
 }
 
@@ -353,16 +353,19 @@ button, a {
   .signInPage{
     width: 50%;
     margin: 50px auto;
-    height: 90%;
+    height: 50%;
   }
 }
+
 
 @media only screen and (max-width: 768px) {
   /* For mobile devices */
   .registerPage {
     width: 90%;
     height: 130%;
+  
   }
+  
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
