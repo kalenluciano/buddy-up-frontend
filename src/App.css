@@ -100,7 +100,7 @@ button, a {
 } */
 
 .aboutMeTitle {
-  font-size: 60px;
+  font-size: 20px;
   background-color:#FDC4E6;
   height: 300px;
   z-index: 1;
@@ -115,10 +115,10 @@ button, a {
   border: 0 solid rgba(177, 167, 167, 0.747);
   border-radius: 10px;
   position: relative;
-  left: 29%;
-  width: 800px;
-  margin-top: -60px;
-  font-size: 25px;
+  margin-left: 60px;
+  width: 80%;
+  margin-top: -70px;
+  font-size: 15px;
   background-color: rgba(177, 167, 167, 0.747);
   z-index: 2;
   box-shadow: 20px 20px 50px rgb(173, 152, 152);
@@ -148,7 +148,8 @@ button, a {
   height: 600px;
   width: 500px;
   margin-top: 50px;
-  margin-left: 620px;
+  left:50%;
+  transform:translateX(-50%);
   background-color: rgba(177, 167, 167, 0.747);
   box-shadow: 20px 20px 50px 10px rgb(173, 152, 152)
 }
@@ -189,7 +190,8 @@ button, a {
 .registerPage {
   border: 2px solid white;
   position: absolute;
-  margin-left: 620px;
+  left:50%;
+  transform:translateX(-50%);
   margin-top: 40px;
   height: 850px;
   width: 500px;
@@ -336,3 +338,52 @@ button, a {
   border-radius: 15px;
   background-color: transparent;
 }
+
+@media only screen and (max-width: 767px) {
+  .signInPage{
+    width: 90%;
+    margin: 50px auto;
+    height: auto;
+    min-height: 500px;
+  }
+}
+
+/* Medium and large screens */
+@media only screen and (min-width: 768px) {
+  .signInPage{
+    width: 50%;
+    margin: 50px auto;
+    height: 90%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile devices */
+  .registerPage {
+    width: 90%;
+    height: 130%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* For tablets */
+  .registerPage {
+    width: 70%;
+    height: 100%;
+  
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  /* For desktops and larger devices */
+  .registerPage {
+    width: 50%;
+    height: 900px;
+  }
+}
+
+
+
+
+
+
