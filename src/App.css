@@ -350,6 +350,9 @@ button, a {
  body .aboutMeInfo{
     top:80%;
   }
+  .registerPage textarea{
+    width:200px;
+  }
 }
 
 @media screen and (min-width:281px) and (max-width:540px){
@@ -393,6 +396,7 @@ button, a {
 @media only screen and (max-width: 540px) and (max-height: 720px) {
   .aboutMeTitle {
     top: 55%;
+  
   }
   .aboutMeInfo {
     top: 65%;
@@ -405,7 +409,7 @@ button, a {
 @media only screen and (max-width: 768px) {
   .signInPage {
     height: 400px;
-    width: 90%;
+    width: 75%;
   }
 
   .signInPage h1 {
@@ -438,7 +442,7 @@ button, a {
 @media only screen and (min-width: 769px) {
   .signInPage {
     height: 400px;
-    width: 90%;
+    
   }
 
 }
@@ -452,6 +456,9 @@ button, a {
     width: 90%;
     height: 130%;
   
+  }
+  .registerPage h1{
+    font-size: 40px;
   }
   
 }
