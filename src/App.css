@@ -100,25 +100,30 @@ button, a {
 } */
 
 .aboutMeTitle {
-  font-size: 60px;
+  font-size: 20px;
   background-color:#FDC4E6;
-  height: 300px;
+  height: 200px;
   z-index: 1;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 .aboutMeTitle h1 {
-  position: absolute;
-  left: 38%;
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .aboutMeInfo {
   border: 0 solid rgba(177, 167, 167, 0.747);
   border-radius: 10px;
-  position: relative;
-  left: 29%;
-  width: 800px;
-  margin-top: -60px;
-  font-size: 25px;
+  position: absolute;
+  width: 80%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-size: 15px;
   background-color: rgba(177, 167, 167, 0.747);
   z-index: 2;
   box-shadow: 20px 20px 50px rgb(173, 152, 152);
@@ -148,7 +153,8 @@ button, a {
   height: 600px;
   width: 500px;
   margin-top: 50px;
-  margin-left: 620px;
+  left:50%;
+  transform:translateX(-50%);
   background-color: rgba(177, 167, 167, 0.747);
   box-shadow: 20px 20px 50px 10px rgb(173, 152, 152)
 }
@@ -189,7 +195,8 @@ button, a {
 .registerPage {
   border: 2px solid white;
   position: absolute;
-  margin-left: 620px;
+  left:50%;
+  transform:translateX(-50%);
   margin-top: 40px;
   height: 850px;
   width: 500px;
@@ -336,3 +343,157 @@ button, a {
   border-radius: 15px;
   background-color: transparent;
 }
+
+
+
+@media screen and (max-width:280px){
+ body .aboutMeInfo{
+    top:80%;
+  }
+  .registerPage textarea{
+    width:200px;
+  }
+}
+@media  screen and (min-width: 281px) and (max-width: 331px) {
+ body .aboutMeInfo {
+    top: 65%;
+  }
+}
+@media screen and (min-width:281px) and (max-width:540px){
+  .aboutMeInfo{
+    top:50%;
+  }
+}
+
+@media screen and (min-width:541px) and(max-width:360px){
+  .aboutMeInfo{
+    top:60%;
+  }
+}
+
+
+@media only screen and (min-width: 376px)and(max-width:766px)  {
+ 
+  .aboutMeInfo{
+    top:50%;
+  }
+}
+
+@media only screen and (max-width: 375px) and (max-height: 667px) {
+  .aboutMeTitle {
+    top: 65%;
+  }
+  .aboutMeInfo {
+    top: 75%;
+  }
+}
+
+@media only screen and (max-width: 360px) and (max-height: 740px) {
+  .aboutMeTitle {
+    top: 55%;
+  }
+  .aboutMeInfo {
+    top: 65%;
+  }
+}
+
+@media only screen and (max-width: 540px) and (max-height: 720px) {
+  .aboutMeTitle {
+    top: 55%;
+  
+  }
+  .aboutMeInfo {
+    top: 65%;
+  }
+ 
+}
+
+@media only screen and (min-width: 545px) and (max-width: 668px) {
+  .aboutMeInfo {
+    top: 55%;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .signInPage {
+    height: 400px;
+    width: 75%;
+  }
+
+  .signInPage h1 {
+    font-size: 40px;
+  }
+
+  .loginLabel {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
+  .signInPage input {
+    height: 15px;
+    width: 150px;
+    font-size: 14px;
+  }
+
+  .signInPage button {
+    height: 30px;
+    width: 100px;
+    font-size: 16px;
+  }
+
+  .signInPage p {
+    font-size: 14px;
+    margin: 5px;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .signInPage {
+    height: 400px;
+    
+  }
+
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile devices */
+  .registerPage {
+    width: 90%;
+    height: 130%;
+  
+  }
+  .registerPage h1{
+    font-size: 40px;
+  }
+  
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* For tablets */
+  .registerPage {
+    width: 70%;
+    height: 110%;
+  
+  }
+  
+ 
+}
+
+@media only screen and (min-width: 1024px) {
+  /* For desktops and larger devices */
+  .registerPage {
+    width: 50%;
+    height: 900px;
+  }
+ 
+}
+
+
+
+
+
+
